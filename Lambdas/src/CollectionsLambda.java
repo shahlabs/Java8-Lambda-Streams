@@ -36,6 +36,32 @@ public class CollectionsLambda {
 		Collection<Book> noDups = new HashSet<Book>(dupBooks);
 		System.out.println("After removing duplicates"+ noDups.toString());
 		
+		Arrays.asList("red", "green", "blue")
+			  .stream().
+			  sorted().
+			  findFirst().ifPresent(System.out::println);	
+		
+		Stream.of("apple", "banana", "mango","pear", "apricot")
+			.filter((fruit)->{
+				return fruit.startsWith("a");
+			}).forEach(fruit -> System.out.println("Starts with A: " +fruit));
+		
+		List<String> collected = Stream.of("Java", " Rocks")
+                .map(string -> string.toUpperCase())
+                .collect(Collectors.toList());
+		System.out.println(collected.toString());
+		
+		IntStream.range(1, 4).forEach(System.out::println);
+		
+		Arrays.stream(new int[] {1,2,3,4})
+			.map(n -> n * n)
+			.average()
+			.ifPresent(System.out::println);
+		
+		Stream.of(1.5,2.3,3.7)
+		.mapToInt(Double::intValue)
+		.forEach(System.out::println);
+
 	
 		
 	}
